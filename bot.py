@@ -16,10 +16,10 @@ async def echo(message: types.Message):
     raznitsa = str(bday - today)
     if raznitsa.find('day')!=-1:
         day = raznitsa[:raznitsa.find(' ')]
-    if day=='2':
-        st = st+'2 дня'
-    elif day =='1':
-        st = st+'1 день'
+        if day=='2':
+            st = st+'2 дня'
+        elif day =='1':
+            st = st+'1 день'
     else:
         st=st+'0 дней'
     raznitsa = raznitsa[raznitsa.find(',')+2:]
