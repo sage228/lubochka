@@ -23,7 +23,7 @@ async def echo(message: types.Message):
     else:
         st=st+'0 дней'
     raznitsa = raznitsa[raznitsa.find(',')+2:]
-    st = st+' ' + raznitsa[:raznitsa.find(':')] + ' часов'
+    st = st+' ' + str(int(raznitsa[:raznitsa.find(':')])+7) + ' часов'
     raznitsa=raznitsa[raznitsa.find(':')+1:]
     st = st + ' ' + raznitsa[:raznitsa.find(':')] + ' минут'
     raznitsa=raznitsa[raznitsa.find(':')+1:]
