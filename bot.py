@@ -9,8 +9,9 @@ dp = Dispatcher(bot)
 
 #echo
 @dp.message_handler()
-async def echo(message: types.Message):
-    today = datetime.datetime.now()
+async def echo(message): 
+    delta = datetime.timedelta(hours=3, minutes=0)
+    today = datetime.now(datetime.timezone.utc) + delta
     bday = datetime.datetime(2022, 7, 6)
     st = ''
     raznitsa = str(bday - today)
@@ -23,7 +24,7 @@ async def echo(message: types.Message):
     else:
         st=st+'0 дней'
     raznitsa = raznitsa[raznitsa.find(',')+2:]
-    st = st+' ' + str(int(raznitsa[:raznitsa.find(':')])+7) + ' часов'
+    st = st+' ' + str(int(raznitsa[:raznitsa.find(':')])) + ' часов'
     raznitsa=raznitsa[raznitsa.find(':')+1:]
     st = st + ' ' + raznitsa[:raznitsa.find(':')] + ' минут'
     raznitsa=raznitsa[raznitsa.find(':')+1:]
@@ -33,4 +34,4 @@ async def echo(message: types.Message):
 
 # run long-polling
 if __name__=='__main__':
-    executor.start_polling(dp, skip_updates=False)
+    executor.start_polling(dp, skip_updates=True)
