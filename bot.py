@@ -18,7 +18,7 @@ async def echo(message):
         day = raznitsa[:raznitsa.find(' ')]
     raznitsa = raznitsa[raznitsa.find(',')+2:]
     raznitsa=raznitsa[raznitsa.find(':')+1:]
-    st = st + ' ' + raznitsa[:raznitsa.find(':')] + ' минут'
+    st = st + raznitsa[:raznitsa.find(':')] + ' минут'
     raznitsa=raznitsa[raznitsa.find(':')+1:]
     st = st + ' ' + raznitsa[:raznitsa.find('.')] + ' секунд'
     await message.answer('До дня рождения принцески осталось ' + st)
